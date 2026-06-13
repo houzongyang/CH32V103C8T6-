@@ -1,0 +1,33 @@
+#define PWM_DUTY_MAX 1000
+#include <CH32V103.h>
+#include "CH32V_PWM.h"
+#include "CDC.h"
+
+uint16_t i = 0;
+
+int main(void)
+{
+  CH32_Init();
+  SerialUSB.begin(9600);
+  pinMode(PB8, GPIO_Mode_AF_PP);
+  pinMode(PB9, GPIO_Mode_AF_PP);
+  PWM_Init(TIM4_CH3, PB8, 100000, 0);
+  PWM_Init(TIM4_CH4, PB9, 100000, 0);
+  while (!SerialUSB);
+  while(1){
+    // 左右电机同步渐变，便于矫正
+    for (int i = 0; i < 1000; i = i + 2) {
+      TIM_SetCompare3(TIM4, i); // 左电机PWM
+      TIM_SetCompare4(TIM4, i); // 右电机PWM
+      delay(5);
+    }
+    for (int i = 1000; i > 0; i = i + (-2)) {
+      TIM_SetCompare3(TIM4, i);
+      TIM_SetCompare4(TIM4, i);
+      delay(5);
+    }
+    delay(1000);
+  }
+  return 1;
+}
+/** edittype="ch32v103code" */

@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "CH32V103C8T6",
+			"path": "C:\\Users\\13413\\Desktop\\小车避障成功的\\右侧比左侧好的\\CH32V103C8T6(3)(1)(1)(1)\\CH32V103C8T6(3)(1)\\CH32V103C8T6(3)\\CH32V103C8T6"
+		}
+	],
+	"settings": {
+		"mrs.workspace.type": "project",
+		"mrs.init.arg": "",
+		"files.associations": {
+			"*.c": "c",
+			"*.h": "cpp",
+			"*.hxx": "cpp",
+			"*.hpp": "cpp",
+			"*.c++": "cpp",
+			"*.cpp": "cpp",
+			"*.cxx": "cpp",
+			"*.cc": "cpp",
+			"*.hh": "cpp",
+			"*.h++": "cpp"
+		}
+	}
+}
